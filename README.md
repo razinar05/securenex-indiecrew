@@ -19,7 +19,7 @@
 
 ---
 
-## 🎯 Overview
+## Overview
 
 **Sentry** is a modern corporate intelligence platform designed for HR departments and security teams to perform:
 - Employee data breach monitoring
@@ -31,7 +31,7 @@ The platform features a sleek, Sentry.io-inspired dark UI with smooth animations
 
 ---
 
-## ✨ Features
+## Features
 
 ### 🏢 Human Resources Intelligence
 - **Vanguard 1.0** - Identity verification and candidate vetting
@@ -53,7 +53,7 @@ The platform features a sleek, Sentry.io-inspired dark UI with smooth animations
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Frontend
 - **React** (with Vite)
@@ -77,35 +77,30 @@ The platform features a sleek, Sentry.io-inspired dark UI with smooth animations
 
 ---
 
-## 📦 Installation
+## Installation
 
 ### Prerequisites
 - Node.js (v16 or higher)
 - npm or yarn
 - API keys (see Configuration section)
 
-### Step 1: Clone the Repository
-```bash
+### Step 1: Clone the Repositorybash
 cd c:\Users\razin\Downloads\razinxrizwi\indie-crew-main
-```
+
 
 ### Step 2: Install Dependencies
 
-**Frontend:**
-```bash
+**Frontend:**bash
 npm install
-```
 
-**Backend:**
-```bash
+
+**Backend:**bash
 cd server
 npm install
-```
+
 
 ### Step 3: Environment Setup
-Create a `.env` file in the `server/` directory:
-
-```env
+Create a .env file in the server/ directory:env
 # Data Breach API (optional - uses mock data by default)
 HIBP_API_KEY=00000000000000000000000000000000
 
@@ -117,51 +112,49 @@ IMGUR_CLIENT_ID=your_imgur_client_id_here
 
 # Cohere AI (for risk assessment)
 COHERE_API_KEY=your_cohere_api_key_here
-```
+
 
 ### Step 4: Start the Application
 
-**Terminal 1 - Backend Server:**
-```bash
+**Terminal 1 - Backend Server:**bash
 cd server
 npm start
-```
-Backend runs on: `http://localhost:3001`
 
-**Terminal 2 - Frontend:**
-```bash
+Backend runs on: http://localhost:3001
+
+**Terminal 2 - Frontend:**bash
 npm run dev
-```
-Frontend runs on: `http://localhost:5173` (or next available port)
+
+Frontend runs on: http://localhost:5173 (or next available port)
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 ### API Keys
 
 #### 1. **Cohere AI** (Required for Citadel 1.0)
 - Sign up at: https://dashboard.cohere.com/
 - Get your API key from the dashboard
-- Add to `.env`: `COHERE_API_KEY=your_key`
+- Add to .env: COHERE_API_KEY=your_key
 
 #### 2. **SerpAPI** (Required for Reverse Image Search)
 - Sign up at: https://serpapi.com/
 - Get your API key
-- Add to `.env`: `SERPAPI_KEY=your_key`
+- Add to .env: SERPAPI_KEY=your_key
 
 #### 3. **Imgur** (Required for Image Uploads)
 - Create an app at: https://api.imgur.com/
 - Get your Client ID
-- Add to `.env`: `IMGUR_CLIENT_ID=your_client_id`
+- Add to .env: IMGUR_CLIENT_ID=your_client_id
 
 #### 4. **XposedOrNot** (Optional - uses mock data)
 - Free tier available at: https://xposedornot.com/
-- Add to `.env`: `HIBP_API_KEY=your_key`
+- Add to .env: HIBP_API_KEY=your_key
 
 ---
 
-## 📖 Usage Guide
+## Usage Guide
 
 ### Homepage Navigation
 
@@ -179,7 +172,7 @@ Click to access:
 
 ---
 
-## 📚 Module Documentation
+## Module Documentation
 
 ### 🔍 Vanguard 1.0 - Identity Intelligence
 
@@ -238,7 +231,7 @@ Click to access:
 4. View breach details and affected services
 
 **Test Email:**
-- `test@gmail.com` - Returns 10-12 mock breaches
+- test@gmail.com - Returns 10-12 mock breaches
 
 ---
 
@@ -247,7 +240,7 @@ Click to access:
 
 **How to Use:**
 1. Select "Group Analysis"
-2. Upload CSV file with columns: `Name`, `Email`, `Department`
+2. Upload CSV file with columns: Name, Email, Department
 3. Click "📊 Analyze Group"
 4. View dashboard with:
    - Total employees
@@ -255,14 +248,13 @@ Click to access:
    - Medium/High risk counts
    - Individual employee cards with exposure scores
 
-**Sample CSV Format:**
-```csv
+**Sample CSV Format:**csv
 Name,Email,Department
 John Doe,john@example.com,Engineering
 Jane Smith,jane@example.com,Marketing
-```
 
-**Sample CSV:** Use `indie-crew-main/employee-data.csv`
+
+**Sample CSV:** Use indie-crew-main/employee-data.csv
 
 ---
 
@@ -308,26 +300,22 @@ Jane Smith,jane@example.com,Marketing
 - Assess expansion plans
 - Identify supply chain vulnerabilities
 
-**Example Input:**
-```
-**Internal Planning Memo: Project SAF-Johor**
+**Example Input:****Internal Planning Memo: Project SAF-Johor**
 
 **Proposal:** To fast-track the development of a second, world-scale 
 biorefinery in Pengerang, Johor, dedicated exclusively to Sustainable 
 Aviation Fuel (SAF) production.
 
 **Objective:** To capture 25% of the Southeast Asian SAF market by 2035.
-```
+
 
 ---
 
-## 🔌 API Documentation
+## API Documentation
 
 ### Backend Endpoints
 
-#### 1. Data Breach Check
-```
-POST http://localhost:3001/api/sentinel/check-breach
+#### 1. Data Breach CheckPOST http://localhost:3001/api/sentinel/check-breach
 Content-Type: application/json
 
 {
@@ -341,13 +329,11 @@ Response:
   "exposureScore": 85,
   "breaches": [...]
 }
-```
+
 
 ---
 
-#### 2. Group Breach Analysis
-```
-POST http://localhost:3001/api/sentinel/analyze-group
+#### 2. Group Breach AnalysisPOST http://localhost:3001/api/sentinel/analyze-group
 Content-Type: multipart/form-data
 
 file: employee-data.csv
@@ -364,13 +350,11 @@ Response:
     }
   ]
 }
-```
+
 
 ---
 
-#### 3. Reverse Image Search
-```
-POST http://localhost:3001/api/vanguard/reverse-search
+#### 3. Reverse Image SearchPOST http://localhost:3001/api/vanguard/reverse-search
 Content-Type: multipart/form-data
 
 image: uploaded_file.jpg
@@ -385,13 +369,11 @@ Response:
     }
   ]
 }
-```
+
 
 ---
 
-#### 4. Candidate Vetting
-```
-POST http://localhost:3001/api/vanguard/vet-candidate
+#### 4. Candidate VettingPOST http://localhost:3001/api/vanguard/vet-candidate
 Content-Type: application/json
 
 {
@@ -411,13 +393,11 @@ Response:
   },
   "records": {...}
 }
-```
+
 
 ---
 
-#### 5. AI Risk Assessment
-```
-POST http://localhost:3001/api/strategic-intel/analyze
+#### 5. AI Risk AssessmentPOST http://localhost:3001/api/strategic-intel/analyze
 Content-Type: application/json
 
 {
@@ -432,16 +412,16 @@ Response:
   "analysis_mode": "public_reaction",
   "timestamp": "2025-11-16T..."
 }
-```
+
 
 ---
 
-## 🎭 Demo Data
+## Demo Data
 
 ### Test Accounts for Sentinel 1.0
 | Email | Expected Result |
 |-------|----------------|
-| `test@gmail.com` | 10-12 breaches (mock data) |
+| test@gmail.com | 10-12 breaches (mock data) |
 | Any other email | Real XposedOrNot API data |
 
 ### Test Candidates for Vanguard 1.0
@@ -452,22 +432,21 @@ Response:
 | Chen Wei Ming | A12345678 | ✅ Cleared |
 
 ### Sample Files
-- **Employee CSV:** `indie-crew-main/employee-data.csv`
+- **Employee CSV:** indie-crew-main/employee-data.csv
 - Contains 3 employees with mock breach data
 
 ---
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
-### Issue: Port Already in Use
-```bash
+### Issue: Port Already in Usebash
 # Find and kill process on port 3001
 netstat -ano | findstr :3001
 taskkill /PID <PID> /F
 
 # Or change port in server/index.js
 const PORT = 3002;
-```
+
 
 ---
 
