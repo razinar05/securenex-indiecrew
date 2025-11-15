@@ -1,0 +1,104 @@
+/* Positive (green) pulse */
+@keyframes positiveGlow {
+  0%   { box-shadow: 0 0 0 0 rgba(34, 197, 94, .35); }
+  70%  { box-shadow: 0 0 0 14px rgba(34, 197, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+.effect-positive {
+  animation: positiveGlow 1.6s ease-in-out infinite;
+  border-radius: 0.5rem;
+}
+
+/* Negative (red) pulse */
+@keyframes negativeGlow {
+  0%   { box-shadow: 0 0 0 0 rgba(239, 68, 68, .35); }
+  70%  { box-shadow: 0 0 0 14px rgba(239, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+.effect-negative {
+  animation: negativeGlow 1.6s ease-in-out infinite;
+  border-radius: 0.5rem;
+}
+
+/* Full-screen flash overlays */
+@keyframes flashGreen {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  15% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.15;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes flashRed {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  15% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+}
+
+/* Flash overlay elements */
+.flash-overlay-green {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(34, 197, 94, 0.8) 0%, rgba(16, 185, 129, 0.4) 50%, transparent 100%);
+  pointer-events: none;
+  z-index: 9999;
+  animation: flashGreen 1.2s ease-out forwards;
+}
+
+.flash-overlay-red {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(239, 68, 68, 0.8) 0%, rgba(220, 38, 38, 0.5) 50%, transparent 100%);
+  pointer-events: none;
+  z-index: 9999;
+  animation: flashRed 1.2s ease-out forwards;
+}
+
+/* Glow effect for header during flash */
+@keyframes headerGlowGreen {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(1.3) drop-shadow(0 0 20px rgba(34, 197, 94, 0.6)); }
+  100% { filter: brightness(1); }
+}
+
+@keyframes headerGlowRed {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(1.3) drop-shadow(0 0 20px rgba(239, 68, 68, 0.6)); }
+  100% { filter: brightness(1); }
+}
+
+.header-glow-green {
+  animation: headerGlowGreen 1.2s ease-out;
+}
+
+.header-glow-red {
+  animation: headerGlowRed 1.2s ease-out;
+}

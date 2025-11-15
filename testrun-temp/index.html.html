@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unified Corporate Intelligence Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-mode">
+
+    <div id="login-page" class="page">
+        <div class="card">
+            <h2>Unified Corporate Intelligence Hub</h2>
+            <p>Please log in to continue</p>
+            <div class="form-group">
+                <label for="email">Corporate Email</label>
+                <input type="email" id="email" value="demo@petronas.com">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" value="demo">
+            </div>
+            <button id="login-button" class="btn btn-primary">Log In</button>
+        </div>
+    </div>
+
+    <div id="hub-page" class="page hidden">
+        <nav class="sidebar">
+            <div class="sidebar-header"> <h3>PETRONAS Hub</h3> </div>
+            <ul>
+                <li id="nav-sentinel" class="nav-item active">🛡️ Sentinel</li>
+                <li id="nav-vanguard" class="nav-item">📈 Strategic Intel</li>
+            </ul>
+            <div class="sidebar-footer"> <a id="logout-button">🚪 Logout</a> </div>
+        </nav>
+
+        <main class="content">
+            <div id="sentinel-module" class="module">
+                <h1>🛡️ Sentinel: Employee Breach Monitoring</h1>
+                <p>Enter an employee email to check for public data breaches.</p>
+                <div class="form-group">
+                    <label for="sentinel-email-input">Email to Check</label>
+                    <input type="email" id="sentinel-email-input" placeholder="e.g., test@example.com">
+                </div>
+                <button id="sentinel-scan-button" class="btn btn-primary">Start Proactive Scan</button>
+                <div id="sentinel-loading" class="loading-bar hidden">
+                    <div class="loading-shimmer"></div>
+                    <span>Scanning Breach Databases...</span>
+                </div>
+                <div id="sentinel-results" class="results-card hidden">
+                    <h3 id="sentinel-results-title">Scan Complete</h3>
+                    <ul id="sentinel-results-list"></ul>
+                </div>
+            </div>
+
+            <div id="vanguard-module" class="module module-full-width hidden">
+                <h1>📈 AI Strategic Intelligence Analyzer</h1>
+                <p>Analyze public reactions to past events or forecast risks for future plans.</p>
+                
+                <div class="form-group">
+                    <label>Select Analysis Mode</label>
+                    <div class="toggle-switch">
+                        <input type="radio" id="mode-reaction" name="analysis-mode" value="public_reaction" checked>
+                        <label for="mode-reaction">Public Reaction (OSINT)</label>
+                        <input type="radio" id="mode-risk" name="analysis-mode" value="future_risk">
+                        <label for="mode-risk">Future Risk (Forecasting)</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="label-group">
+                        <label for="raw-text-input">Paste Company Action or Plan</label>
+                        <span id="char-counter">0 / 50000</span>
+                    </div>
+                    <textarea id="raw-text-input" class="form-control" rows="12" placeholder="Paste the official press release or the future plan details here..."></textarea>
+                </div>
+
+                <button id="vanguard-vet-button" class="btn btn-primary">Analyze</button>
+
+                <div id="vanguard-loading" class="loading-bar hidden">
+                    <div class="loading-shimmer"></div>
+                    <span id="vanguard-loading-text">Analyzing... (Calling Cohere AI...)</span>
+                </div>
+
+                <div id="vanguard-report" class="results-card hidden">
+                    <h3 id="vanguard-report-title">AI Intelligence Briefing</h3>
+                    
+                    <div class="report-grid">
+                        
+                        <div id="pod-summary" class="report-pod">
+                            <div class="pod-header">
+                                <span class="pod-icon">📄</span>
+                                <h4>Executive Summary</h4>
+                            </div>
+                            <div id="report-summary-content" class="pod-content"></div>
+                        </div>
+
+                        <div id="pod-themes" class="report-pod">
+                            <div class="pod-header">
+                                <span class="pod-icon">🔑</span>
+                                <h4>Key Themes</h4>
+                            </div>
+                            <div id="report-themes-content" class="pod-content"></div>
+                        </div>
+
+                        <div id="pod-risks" class="report-pod span-2">
+                            <div class="pod-header">
+                                <span class="pod-icon">⚠️</span>
+                                <h4>Risk Analysis</h4>
+                            </div>
+                            <div id="report-risks-content" class="pod-content"></div>
+                        </div>
+
+                        <div id="pod-actions" class="report-pod span-2">
+                            <div class="pod-header">
+                                <span class="pod-icon">✅</span>
+                                <h4>Action Items</h4>
+                            </div>
+                            <div id="report-actions-content" class="pod-content"></div>
+                        </div>
+
+                    </div>
+                    
+                </div>
+            </div>
+
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

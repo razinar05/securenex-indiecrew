@@ -1,0 +1,196 @@
+/* Global Theme Overrides for Sentry.io Style */
+
+/* Replace white backgrounds with dark theme */
+.bg-white {
+  background-color: rgba(30, 27, 75, 0.4) !important;
+  color: white !important;
+}
+
+/* Replace gray backgrounds */
+.bg-gray-50 {
+  background-color: rgba(15, 23, 42, 0.6) !important;
+  color: #94a3b8 !important;
+}
+
+.bg-gray-100 {
+  background-color: rgba(30, 27, 75, 0.5) !important;
+  color: #94a3b8 !important;
+}
+
+.bg-gray-200 {
+  background-color: rgba(30, 27, 75, 0.4) !important;
+  color: #94a3b8 !important;
+}
+
+.bg-gray-700 {
+  background-color: rgba(15, 23, 42, 0.8) !important;
+}
+
+/* Replace purple accents with gradient purple */
+.bg-purple-50 {
+  background: rgba(139, 92, 246, 0.05) !important;
+  border-color: rgba(139, 92, 246, 0.2) !important;
+}
+
+.bg-purple-100 {
+  background: rgba(139, 92, 246, 0.15) !important;
+}
+
+.bg-purple-600 {
+  background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%) !important;
+}
+
+.hover\:bg-purple-700:hover {
+  background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%) !important;
+}
+
+/* Text colors */
+.text-gray-500 {
+  color: #94a3b8 !important;
+}
+
+.text-gray-600 {
+  color: #cbd5e1 !important;
+}
+
+.text-gray-700 {
+  color: #e2e8f0 !important;
+}
+
+.text-gray-800 {
+  color: white !important;
+}
+
+.text-purple-600,
+.text-purple-700 {
+  color: #8b5cf6 !important;
+}
+
+/* Border colors */
+.border-gray-200,
+.border-gray-300 {
+  border-color: rgba(148, 163, 184, 0.2) !important;
+}
+
+.border-purple-200,
+.border-purple-300,
+.border-purple-400 {
+  border-color: rgba(139, 92, 246, 0.3) !important;
+}
+
+/* Shadows with purple tint */
+.shadow-lg {
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2) !important;
+}
+
+.shadow-xl {
+  box-shadow: 0 20px 40px rgba(139, 92, 246, 0.25) !important;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="email"],
+input[type="file"],
+textarea,
+select {
+  background-color: rgba(15, 23, 42, 0.8) !important;
+  color: white !important;
+  border-color: rgba(148, 163, 184, 0.2) !important;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus,
+select:focus {
+  border-color: rgba(139, 92, 246, 0.5) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #64748b !important;
+}
+
+/* Buttons */
+button:not(.cta-primary) {
+  transition: all 0.3s ease !important;
+}
+
+/* Cards and containers */
+.rounded-lg,
+.rounded-xl {
+  backdrop-filter: blur(10px) !important;
+}
+
+/* Status badges and tags */
+.bg-green-100 {
+  background: rgba(16, 185, 129, 0.15) !important;
+  color: #10b981 !important;
+}
+
+.bg-yellow-100 {
+  background: rgba(245, 158, 11, 0.15) !important;
+  color: #f59e0b !important;
+}
+
+.bg-red-100 {
+  background: rgba(239, 68, 68, 0.15) !important;
+  color: #ef4444 !important;
+}
+
+.text-green-600,
+.text-green-700 {
+  color: #10b981 !important;
+}
+
+.text-yellow-600,
+.text-yellow-700 {
+  color: #f59e0b !important;
+}
+
+.text-red-600,
+.text-red-700 {
+  color: #ef4444 !important;
+}
+
+.border-green-200 {
+  border-color: rgba(16, 185, 129, 0.3) !important;
+}
+
+.border-yellow-200 {
+  border-color: rgba(245, 158, 11, 0.3) !important;
+}
+
+.border-red-200 {
+  border-color: rgba(239, 68, 68, 0.3) !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.5);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.7);
+}
+
+/* Links */
+a {
+  color: #8b5cf6 !important;
+  transition: color 0.2s ease !important;
+}
+
+a:hover {
+  color: #a78bfa !important;
+}
