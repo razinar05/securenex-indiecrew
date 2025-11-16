@@ -1,12 +1,8 @@
-/* Global Theme Overrides for Sentry.io Style */
-
-/* Replace white backgrounds with dark theme */
 .bg-white {
   background-color: rgba(30, 27, 75, 0.4) !important;
   color: white !important;
 }
 
-/* Replace gray backgrounds */
 .bg-gray-50 {
   background-color: rgba(15, 23, 42, 0.6) !important;
   color: #94a3b8 !important;
@@ -26,7 +22,6 @@
   background-color: rgba(15, 23, 42, 0.8) !important;
 }
 
-/* Replace purple accents with gradient purple */
 .bg-purple-50 {
   background: rgba(139, 92, 246, 0.05) !important;
   border-color: rgba(139, 92, 246, 0.2) !important;
@@ -44,7 +39,6 @@
   background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%) !important;
 }
 
-/* Text colors */
 .text-gray-500 {
   color: #94a3b8 !important;
 }
@@ -66,7 +60,6 @@
   color: #8b5cf6 !important;
 }
 
-/* Border colors */
 .border-gray-200,
 .border-gray-300 {
   border-color: rgba(148, 163, 184, 0.2) !important;
@@ -78,7 +71,6 @@
   border-color: rgba(139, 92, 246, 0.3) !important;
 }
 
-/* Shadows with purple tint */
 .shadow-lg {
   box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2) !important;
 }
@@ -87,7 +79,6 @@
   box-shadow: 0 20px 40px rgba(139, 92, 246, 0.25) !important;
 }
 
-/* Input fields */
 input[type="text"],
 input[type="email"],
 input[type="file"],
@@ -112,18 +103,15 @@ textarea::placeholder {
   color: #64748b !important;
 }
 
-/* Buttons */
 button:not(.cta-primary) {
   transition: all 0.3s ease !important;
 }
 
-/* Cards and containers */
 .rounded-lg,
 .rounded-xl {
   backdrop-filter: blur(10px) !important;
 }
 
-/* Status badges and tags */
 .bg-green-100 {
   background: rgba(16, 185, 129, 0.15) !important;
   color: #10b981 !important;
@@ -166,7 +154,6 @@ button:not(.cta-primary) {
   border-color: rgba(239, 68, 68, 0.3) !important;
 }
 
-/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -185,7 +172,6 @@ button:not(.cta-primary) {
   background: rgba(139, 92, 246, 0.7);
 }
 
-/* Links */
 a {
   color: #8b5cf6 !important;
   transition: color 0.2s ease !important;

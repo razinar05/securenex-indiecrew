@@ -22,7 +22,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Stage 1: Fade in and zoom */
 .intro-text.fade-in {
   animation: fadeInZoom 1.5s ease-out forwards;
 }
@@ -32,7 +31,6 @@
   transform: translateX(0);
 }
 
-/* Stage 2: Split animation */
 .intro-text.split .intro-left {
   animation: slideLeft 1s ease-in-out forwards;
 }
@@ -74,7 +72,6 @@
   }
 }
 
-/* Hardware acceleration */
 .intro-text span {
   transform: translateZ(0);
   backface-visibility: hidden;

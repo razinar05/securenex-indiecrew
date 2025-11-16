@@ -42,7 +42,6 @@ export default function Homepage({ onModuleSelect }) {
   return (
     <div className="homepage-container">
       <div className="homepage-content">
-        {/* Hero Section */}
         <div className="hero-section">
           <h1 className="hero-title">Intelligence that breaks through,<br />clarity that moves fast</h1>
           <p className="hero-subtitle">Corporate intelligence platform trusted by security-conscious organizations</p>
@@ -51,12 +50,10 @@ export default function Homepage({ onModuleSelect }) {
           </div>
         </div>
 
-        {/* Products Section */}
         <div className="products-section">
           <h2 className="section-header sentry-glow-text">SENTRY</h2>
         
         <div className="categories-grid">
-          {/* HR Category */}
           <div className="category-card">
             <div className="category-badge">{categories.hr.title}</div>
             <h3 className="category-title-large">{categories.hr.description}</h3>
@@ -76,7 +73,6 @@ export default function Homepage({ onModuleSelect }) {
             </div>
           </div>
 
-          {/* Data Security Category */}
           <div className="category-card">
             <div className="category-badge">{categories.dataSecurity.title}</div>
             <h3 className="category-title-large">{categories.dataSecurity.description}</h3>
@@ -98,7 +94,6 @@ export default function Homepage({ onModuleSelect }) {
         </div>
         </div>
 
-        {/* Footer */}
         <div className="footer">
           <p className="footer-text">Powered by The Indie Crew</p>
         </div>

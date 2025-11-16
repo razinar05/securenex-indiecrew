@@ -18,14 +18,12 @@ const StrategicIntelView = () => {
     setError('');
   };
 
-  // Donut chart component
   const DonutChart = ({ high, medium, low, score }) => {
     const total = high + medium + low;
     const highPercent = total > 0 ? (high / total) * 100 : 0;
     const mediumPercent = total > 0 ? (medium / total) * 100 : 0;
     const lowPercent = total > 0 ? (low / total) * 100 : 0;
     
-    // Calculate stroke dash array for donut segments
     const radius = 40;
     const circumference = 2 * Math.PI * radius;
     const highDash = (highPercent / 100) * circumference;
@@ -36,7 +34,6 @@ const StrategicIntelView = () => {
       <div className="flex items-center justify-center gap-8">
         <div className="relative w-32 h-32">
           <svg className="transform -rotate-90 w-32 h-32">
-            {/* Low Risk (Green) */}
             <circle
               cx="64"
               cy="64"
@@ -47,7 +44,6 @@ const StrategicIntelView = () => {
               strokeDasharray={`${lowDash} ${circumference}`}
               strokeDashoffset="0"
             />
-            {/* Medium Risk (Yellow) */}
             <circle
               cx="64"
               cy="64"
@@ -58,7 +54,6 @@ const StrategicIntelView = () => {
               strokeDasharray={`${mediumDash} ${circumference}`}
               strokeDashoffset={-lowDash}
             />
-            {/* High Risk (Red) */}
             <circle
               cx="64"
               cy="64"
@@ -95,7 +90,6 @@ const StrategicIntelView = () => {
     );
   };
 
-  // Score meter component
   const ScoreMeter = ({ score, label }) => {
     const getColor = () => {
       if (score >= 70) return 'bg-green-500';
@@ -140,7 +134,6 @@ const StrategicIntelView = () => {
       }
     };
 
-    // Extract score and distribution
     const extractScore = (text, label) => {
       const match = text.match(new RegExp(`${label}[:\\s]*(\\d+)`, 'i'));
       return match ? parseInt(match[1]) : 50;
@@ -280,7 +273,6 @@ const StrategicIntelView = () => {
             </p>
           </div>
 
-          {/* Analysis Mode Toggle */}
           <div className="space-y-2">
             <label className="block text-sm font-semibold text-gray-700">Select Analysis Mode</label>
             <div className="flex flex-wrap gap-3">
@@ -309,7 +301,6 @@ const StrategicIntelView = () => {
             </div>
           </div>
 
-          {/* Text Input */}
           <div className="space-y-2">
             <div className="flex justify-between items-center">
               <label htmlFor="raw-text-input" className="block text-sm font-semibold text-gray-700">
@@ -365,10 +356,8 @@ const StrategicIntelView = () => {
         </div>
       )}
 
-      {/* Results Display */}
       {report && (
         <div className="space-y-6 animate-fadeIn">
-          {/* Header with Score */}
           <div className="border-l-4 p-6 rounded-lg" style={{ 
             background: report.isNegative ? 'rgba(245, 158, 11, 0.2)' : 'rgba(16, 185, 129, 0.2)',
             borderColor: report.isNegative ? '#f59e0b' : '#10b981'
@@ -390,7 +379,6 @@ const StrategicIntelView = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Risk Distribution Chart */}
             <div className="p-6 rounded-lg border-2 shadow-lg" style={{ background: 'rgba(30, 27, 75, 0.4)', borderColor: 'rgba(139, 92, 246, 0.3)' }}>
               <h3 className="text-lg font-bold mb-2 flex items-center gap-2" style={{ color: 'white' }}>
                 <span>📊</span> Risk Distribution

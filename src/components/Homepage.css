@@ -9,7 +9,6 @@
   width: 100%;
 }
 
-/* Hero Section */
 .hero-section {
   min-height: 80vh;
   display: flex;
@@ -82,7 +81,6 @@
   box-shadow: 0 15px 40px rgba(139, 92, 246, 0.4);
 }
 
-/* Products Section */
 .products-section {
   padding: 6rem 2rem;
   max-width: 1400px;
@@ -227,8 +225,7 @@
   padding-right: 2rem;
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .modules-container {
     grid-template-columns: 1fr;
   }
@@ -258,7 +255,6 @@
   }
 }
 
-/* Footer */
 .footer {
   padding: 3rem 2rem;
   text-align: center;
@@ -273,7 +269,6 @@
   letter-spacing: 0.02em;
 }
 
-/* Hardware acceleration */
 .category-card,
 .module-card {
   transform: translateZ(0);

@@ -50,25 +50,6 @@ body {
   min-width: 320px;
 }
 
-/* Mouse-Following Gradient Blob */
-#mouse-blob {
-  position: fixed;
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(139, 92, 246, 1) 0%, rgba(167, 139, 250, 0.8) 30%, rgba(139, 92, 246, 0.3) 60%, transparent 80%);
-  filter: blur(80px);
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate3d(-50%, -50%, 0);
-  will-change: transform;
-  transition: opacity 0.3s ease;
-  mix-blend-mode: screen;
-  left: 0;
-  top: 0;
-}
-
-/* SENTRY Glowing Animation */
 .sentry-glow-text {
   background: linear-gradient(90deg, 
     #8b5cf6 0%, 
@@ -94,7 +75,6 @@ body {
     background-position: 100% 50%;
     filter: drop-shadow(0 0 30px rgba(167, 139, 250, 0.8)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.4));
   }
-  min-height: 100vh;
 }
 
 h1 {
