@@ -2,14 +2,13 @@ import { useState } from 'react';
 import axios from 'axios';
 
 const VanguardView = () => {
-  const [activeMode, setActiveMode] = useState('reverse-search'); // 'reverse-search' or 'candidate-vetting'
+  const [activeMode, setActiveMode] = useState('reverse-search');
   const [uploadedImage, setUploadedImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState(null);
   const [error, setError] = useState('');
 
-  // Candidate vetting state
   const [candidateData, setCandidateData] = useState({
     name: '',
     country: '',

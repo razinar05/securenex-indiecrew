@@ -11,7 +11,6 @@ const IndividualCheck = () => {
   const [flashType, setFlashType] = useState('');
   const [showAllBreaches, setShowAllBreaches] = useState(false);
 
-  // Trigger flash effect when results change
   useEffect(() => {
     if (results !== null) {
       const type = results.length === 0 ? 'green' : 'red';
@@ -69,7 +68,6 @@ const IndividualCheck = () => {
     setShowAllBreaches(false);
   };
 
-  // Calculate total breach count by counting commas in the breach names
   const getTotalBreachCount = () => {
     if (!results || results.length === 0) return 0;
     
@@ -77,21 +75,18 @@ const IndividualCheck = () => {
     results.forEach(breach => {
       const breachName = breach.Name || '';
       const commaCount = (breachName.match(/,/g) || []).length;
-      // If there's at least one comma, count is commas + 1, otherwise it's just 1 breach
       totalCount += commaCount > 0 ? commaCount + 1 : 1;
     });
     
     return totalCount;
   };
 
-  // Split all breach names by comma and create individual breach items
   const getAllIndividualBreaches = () => {
     if (!results || results.length === 0) return [];
     
     const allBreaches = [];
     results.forEach(breach => {
       const breachName = breach.Name || '';
-      // Split by comma and trim whitespace
       const individualNames = breachName.split(',').map(name => name.trim()).filter(name => name);
       individualNames.forEach(name => {
         allBreaches.push({
@@ -110,7 +105,6 @@ const IndividualCheck = () => {
 
   return (
     <>
-      {/* Full-screen flash overlay */}
       {showFlash && (
         <div className={flashType === 'green' ? 'flash-overlay-green' : 'flash-overlay-red'} />
       )}
@@ -194,7 +188,6 @@ const IndividualCheck = () => {
             </div>
           )}
 
-          {/* GREEN - No Breaches Found */}
           {results !== null && results.length === 0 && !error && (
             <div className="space-y-4">
               <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6 effect-positive">
@@ -221,7 +214,6 @@ const IndividualCheck = () => {
             </div>
           )}
 
-          {/* RED - Breaches Found */}
           {results !== null && results.length > 0 && (
             <div className="space-y-4">
               <div className="bg-red-50 border-2 border-red-200 rounded-lg p-4 effect-negative">

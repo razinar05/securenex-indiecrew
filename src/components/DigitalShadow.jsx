@@ -8,11 +8,9 @@ const DigitalShadow = ({ employeeData }) => {
   const [selectedEmployee, setSelectedEmployee] = useState(null);
 
   useEffect(() => {
-    // If employeeData is provided (from file upload), use it
     if (employeeData && employeeData.length > 0) {
       setEmployees(employeeData);
     } else {
-      // Otherwise fetch mock data
       fetchEmployees();
     }
   }, [employeeData]);
@@ -73,7 +71,6 @@ const DigitalShadow = ({ employeeData }) => {
 
   return (
     <div className="w-full max-h-[80vh] overflow-y-auto bg-white rounded-lg shadow-xl p-6 sm:p-8">
-      {/* Header */}
       <div className="flex items-center gap-3 mb-6">
         <div className="bg-purple-100 p-3 rounded-full">
           <svg className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
@@ -87,8 +84,7 @@ const DigitalShadow = ({ employeeData }) => {
         </div>
       </div>
 
-      {/* Stats Overview */}
-      <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <div className="border rounded-lg p-4" style={{ background: 'rgba(30, 27, 75, 0.4)', borderColor: 'rgba(148, 163, 184, 0.3)' }}>
           <p className="text-sm mb-1" style={{ color: '#94a3b8' }}>Total Employees</p>
           <p className="text-3xl font-bold" style={{ color: 'white' }}>{stats.total}</p>
@@ -158,7 +154,6 @@ const DigitalShadow = ({ employeeData }) => {
         </div>
       )}
 
-      {/* Employee Detail Modal */}
       {selectedEmployee && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setSelectedEmployee(null)}>
           <div className={`${getRiskBgColor(selectedEmployee.riskLevel)} border-2 ${getRiskBorderColor(selectedEmployee.riskLevel)} rounded-lg p-6 max-w-lg w-full shadow-2xl`} onClick={(e) => e.stopPropagation()}>

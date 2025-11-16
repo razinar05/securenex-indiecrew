@@ -391,7 +391,6 @@ const StrategicIntelView = () => {
               />
             </div>
 
-            {/* Key Findings */}
             <div className="p-6 rounded-lg border-2" style={{ background: 'rgba(245, 158, 11, 0.15)', borderColor: 'rgba(245, 158, 11, 0.4)' }}>
               <h4 className="text-lg font-bold mb-4 flex items-center gap-2" style={{ color: 'white' }}>
                 <span>🔑</span> {analysisMode === 'public_reaction' ? 'Key Themes' : 'Top Risks'}
@@ -415,7 +414,6 @@ const StrategicIntelView = () => {
               </div>
             </div>
 
-            {/* Threats/Critical Areas */}
             <div className="p-6 rounded-lg border-2" style={{ background: 'rgba(245, 158, 11, 0.15)', borderColor: 'rgba(245, 158, 11, 0.4)' }}>
               <h4 className="text-lg font-bold mb-4 flex items-center gap-2" style={{ color: 'white' }}>
                 <span>⚠️</span> {analysisMode === 'public_reaction' ? 'Threats' : 'Critical Areas'}
@@ -439,7 +437,6 @@ const StrategicIntelView = () => {
               </div>
             </div>
 
-            {/* Actions */}
             <div className="p-6 rounded-lg border-2" style={{ background: 'rgba(139, 92, 246, 0.15)', borderColor: 'rgba(139, 92, 246, 0.4)' }}>
               <h4 className="text-lg font-bold mb-4 flex items-center gap-2" style={{ color: 'white' }}>
                 <span>✅</span> {analysisMode === 'public_reaction' ? 'Actions' : 'Mitigation'}

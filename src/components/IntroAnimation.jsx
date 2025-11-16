@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react';
 import './IntroAnimation.css';
 
 const IntroAnimation = () => {
-  const [stage, setStage] = useState('fade-in'); // fade-in, split
+  const [stage, setStage] = useState('fade-in');
 
   useEffect(() => {
-    // Stage 1: Fade in and zoom (0-1.5s)
     const timer1 = setTimeout(() => {
       setStage('split');
     }, 1500);

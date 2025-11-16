@@ -3,11 +3,10 @@ import IndividualCheck from './IndividualCheck';
 import GroupAnalysis from './GroupAnalysis';
 
 const SentinelView = () => {
-  const [activeMode, setActiveMode] = useState('individual'); // 'individual' or 'group'
+  const [activeMode, setActiveMode] = useState('individual');
 
   return (
     <div className="w-full">
-      {/* Mode Toggle Buttons */}
       <div className="flex flex-wrap gap-4 mb-6">
         <button
           onClick={() => setActiveMode('individual')}
@@ -39,7 +38,6 @@ const SentinelView = () => {
         </button>
       </div>
 
-      {/* Render Active Component */}
       {activeMode === 'individual' ? <IndividualCheck /> : <GroupAnalysis />}
     </div>
   );

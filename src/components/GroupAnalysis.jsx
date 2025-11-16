@@ -10,7 +10,6 @@ const GroupAnalysis = () => {
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     if (selectedFile) {
-      // Validate file type (txt, csv)
       const validTypes = ['text/plain', 'text/csv', 'application/vnd.ms-excel'];
       if (!validTypes.includes(selectedFile.type) && !selectedFile.name.match(/\.(txt|csv)$/)) {
         setError('Please upload a .txt or .csv file');
@@ -41,17 +40,14 @@ const GroupAnalysis = () => {
           
           console.log('Raw lines:', lines);
           
-          // Parse the file (expecting format: name,email,location or similar)
           const employees = [];
           
           for (let i = 0; i < lines.length; i++) {
             let line = lines[i].trim();
             if (!line) continue;
             
-            // Remove leading numbers and periods (e.g., "1. " or "2. ")
             line = line.replace(/^\d+\.\s*/, '');
             
-            // Skip header row if it exists
             if (i === 0 && (line.toLowerCase().includes('name') || line.toLowerCase().includes('email'))) {
               continue;
             }
@@ -75,7 +71,6 @@ const GroupAnalysis = () => {
             return;
           }
 
-          // Send to backend for processing
           console.log('Sending to backend...');
           const response = await fetch('http://localhost:3001/api/digital-shadow/upload', {
             method: 'POST',
@@ -122,10 +117,17 @@ const GroupAnalysis = () => {
 
   if (uploadedData) {
     return (
-      <div>
+      <div className="w-full max-h-[85vh] overflow-y-auto">
         <button
-          onClick={resetUpload}
-          className="flex items-center gap-2 text-gray-600 hover:text-gray-800 mb-6 transition-colors group"
+          onClick={() => {
+            resetUpload();
+            setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
+          }}
+          className="flex items-center gap-2 mb-6 px-6 py-3 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl group sticky top-0 z-20"
+          style={{ 
+            background: 'linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%)',
+            color: 'white'
+          }}
         >
           <svg 
             className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" 
@@ -135,7 +137,7 @@ const GroupAnalysis = () => {
           >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
           </svg>
-          <span className="font-medium">Upload New File</span>
+          <span>Upload New File</span>
         </button>
         <DigitalShadow employeeData={uploadedData} />
       </div>
@@ -143,7 +145,7 @@ const GroupAnalysis = () => {
   }
 
   return (
-    <div className="w-full max-h-[80vh] overflow-y-auto bg-white rounded-lg shadow-xl p-6 sm:p-8">
+    <div className="w-full max-h-[80vh] overflow-y-auto bg-white rounded-lg shadow-xl p-6 sm:p-8 relative z-10">
       <div className="flex items-center gap-3 mb-6">
         <div className="bg-purple-100 p-3 rounded-full">
           <svg className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
@@ -213,24 +215,38 @@ const GroupAnalysis = () => {
         <button 
           onClick={handleFileUpload}
           disabled={!file || loading}
-          className="w-full bg-purple-600 hover:bg-purple-700 disabled:bg-gray-400 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+          className={`w-full font-semibold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 relative overflow-hidden ${
+            loading 
+              ? 'bg-purple-600 cursor-wait shadow-[0_0_20px_rgba(139,92,246,0.5)] animate-pulse' 
+              : !file 
+                ? 'bg-gray-400 cursor-not-allowed' 
+                : 'bg-purple-600 hover:bg-purple-700 shadow-lg hover:shadow-[0_0_25px_rgba(139,92,246,0.6)] hover:scale-[1.02]'
+          } text-white`}
         >
-          {loading ? (
-            <>
-              <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-              </svg>
-              Processing...
-            </>
-          ) : (
-            <>
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-              Upload & Analyze
-            </>
+          {loading && (
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-400 to-transparent animate-shimmer"></div>
           )}
+          <div className="relative z-10 flex items-center gap-2">
+            {loading ? (
+              <>
+                <div className="relative w-5 h-5">
+                  <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  <div className="absolute inset-0 rounded-full border-2 border-purple-300 animate-ping"></div>
+                </div>
+                <span className="animate-pulse">Analyzing Data...</span>
+              </>
+            ) : (
+              <>
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+                Upload & Analyze
+              </>
+            )}
+          </div>
         </button>
 
         <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">

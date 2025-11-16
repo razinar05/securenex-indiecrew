@@ -13,7 +13,6 @@ function App() {
   const [activeSubModule, setActiveSubModule] = useState(null);
 
   useEffect(() => {
-    // Show intro animation for 3 seconds
     const timer = setTimeout(() => {
       setShowIntro(false);
       setShowHomepage(true);
@@ -44,8 +43,7 @@ function App() {
 
   return (
     <div className="min-h-screen" style={{ background: '#0a0a14' }}>
-      {/* Header with back button */}
-      <header className="backdrop-blur-lg border-b sticky top-0 z-50" style={{ background: 'rgba(30, 27, 75, 0.6)', borderColor: 'rgba(139, 92, 246, 0.2)' }}>
+      <header className="backdrop-blur-lg border-b sticky top-0 z-30" style={{ background: 'rgba(30, 27, 75, 0.6)', borderColor: 'rgba(139, 92, 246, 0.2)' }}>
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <button
             onClick={handleBackToHome}
@@ -67,8 +65,7 @@ function App() {
         </div>
       </header>
 
-      {/* Module Content */}
-      <main className="container mx-auto px-6 py-8">
+      <main className="container mx-auto px-6 py-8 min-h-[calc(100vh-88px)]">
         {activeModule === 'sentinel' && <SentinelView />}
         {activeModule === 'vanguard' && <VanguardView />}
         {activeModule === 'citadel' && <StrategicIntelView />}
