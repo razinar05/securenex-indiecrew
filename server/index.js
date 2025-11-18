@@ -192,7 +192,6 @@ app.get('/api/breach/:email', async (req, res) => {
   const key = email.toLowerCase();
   const now = Date.now();
 
-  // Check cache for other emails
   const cached = cache.get(key);
   if (cached && (now - cached.ts) < CACHE_MS) {
     return res.json(cached.data);
@@ -1085,8 +1084,7 @@ ${rawText}`;
 
 app.listen(PORT, () => {
   console.log(`🚀 Backend running on http://localhost:${PORT}`);
-  console.log(`🎭 Mock mode enabled for test@gmail.com (10-12 breaches)`);
-  console.log(`📡 All other emails use real XposedOrNot API`);
+  console.log(`📡 Using XposedOrNot API for breach checks`);
   console.log(`👥 Digital Shadow GET endpoint: /api/digital-shadow/employees`);
   console.log(`📤 Digital Shadow POST endpoint: /api/digital-shadow/upload`);
   console.log(`🟢 Vanguard Reverse Search POST: /api/vanguard/reverse-search`);

@@ -42,14 +42,6 @@ export default function Homepage({ onModuleSelect }) {
   return (
     <div className="homepage-container">
       <div className="homepage-content">
-        <div className="hero-section">
-          <h1 className="hero-title">Intelligence that breaks through,<br />clarity that moves fast</h1>
-          <p className="hero-subtitle">Corporate intelligence platform trusted by security-conscious organizations</p>
-          <div className="hero-cta">
-            <button className="cta-primary">Explore Modules</button>
-          </div>
-        </div>
-
         <div className="products-section">
           <h2 className="section-header sentry-glow-text">SENTRY</h2>
         
